@@ -10,7 +10,7 @@ export default defineConfig({
   use: {
     baseURL: 'https://www.saucedemo.com',
     trace: 'on-first-retry',
-    headless: false,
+    headless: process.env.CI ? true : false,
     actionTimeout: 10000,
     navigationTimeout: 30000,
   },

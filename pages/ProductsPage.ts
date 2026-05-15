@@ -8,17 +8,28 @@ export class ProductsPage {
   }
 
   // Localizadores
-  inventoryContainer = () => this.page.locator('.inventory_list');
-  cartBadge = () => this.page.locator('.shopping_cart_badge');
-  cartButton = () => this.page.locator('.shopping_cart_link');
-  checkoutButton = () => this.page.locator('[data-test="checkout"]');
+  inventoryContainer() {
+    return this.page.locator('.inventory_list');
+  }
+
+  cartBadge() {
+    return this.page.locator('.shopping_cart_badge');
+  }
+
+  cartButton() {
+    return this.page.locator('.shopping_cart_link');
+  }
+
+  checkoutButton() {
+    return this.page.locator('[data-test="checkout"]');
+  }
 
   // Métodos
   async isInventoryVisible() {
     return await this.inventoryContainer().isVisible();
   }
 
-  async getProductByName(productName: string) {
+  getProductByName(productName: string) {
     return this.page.locator(`.inventory_item:has-text("${productName}")`);
   }
 
